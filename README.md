@@ -10,6 +10,7 @@
        					├── config 		# 配置包（微信公众号配置类及天行Api配置类）
        					├── constants 	# 常量包（api地址类及常量类）
        					├── domain 		# 实体类包
+       					├── controller  # 控制层
        					├── service 	# 接口包
        						├── impl 	# 实现类
        					├── Task 		# 定时任务

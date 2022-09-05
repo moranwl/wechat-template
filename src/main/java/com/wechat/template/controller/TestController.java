@@ -53,7 +53,7 @@ public class TestController {
         //获取关注用户
         List<String> userList = weiXinService.getUserList(token);
         for (String openId : userList) {
-            if (openId.equals("o1SlF6I5r8FCr_d8EbPP2dweREro")) {
+            if (openId.equals("o1SlF6I5r8FCr_d8EbPP2dweREro") ) {
                 //发送消息实体
                 WechatSendMsgVo sendMsgVo = new WechatSendMsgVo();
                 //设置模板id

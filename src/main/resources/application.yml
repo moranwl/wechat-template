@@ -21,6 +21,6 @@ wechat:
 #彩虹屁接口
 tianapi:
   appKey: 751a876c86952fde6d27e9d13c62da17
-  area: 上海
+  area: 河北
   lsarea: 香河
-  scarea: 河北
+  scarea: 廊坊

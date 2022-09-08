@@ -72,7 +72,7 @@ public class WeiXinServiceImpl implements WeiXinService {
         String requestUrl = UrlConstant.MORNING_API + appKey;
         String resp = HttpUtil.get(requestUrl);
         JSONObject obj = JSONUtil.parseObj(resp);
-        logger.info("obj"+obj.toString());
+        logger.info("早安obj"+obj.toString());
         JSONArray newslist = obj.getJSONArray("newslist");
         String content = ((JSONObject) newslist.get(0)).getStr("content");
         return content;
@@ -84,7 +84,7 @@ public class WeiXinServiceImpl implements WeiXinService {
         String requestUrl = UrlConstant.GOOD_NIGHT_API + appKey;
         String resp = HttpUtil.createGet(requestUrl).contentType("application/x-www-form-urlencoded;charset=UTF-8").charset("UTF-8").execute().body();
         JSONObject obj = JSONUtil.parseObj(resp);
-        logger.info("obj"+obj.toString());
+        logger.info("晚安obj"+obj.toString());
         JSONArray newslist = obj.getJSONArray("newslist");
         String content = ((JSONObject) newslist.get(0)).getStr("content");
         return content;
@@ -132,7 +132,7 @@ public class WeiXinServiceImpl implements WeiXinService {
         String requestUrl = UrlConstant.TIAN_QI_API + appKey + "&city=" + city;
         String resp = HttpUtil.createGet(requestUrl).contentType("application/x-www-form-urlencoded;charset=UTF-8").charset("UTF-8").execute().body();
         JSONObject obj = JSONUtil.parseObj(resp);
-        logger.info("obj"+obj.toString());
+        logger.info("天气 obj"+obj.toString());
         JSONArray newslist = obj.getJSONArray("newslist");
         List<WeatherInfo> weatherInfos = JSONUtil.toList(newslist, WeatherInfo.class);
         return weatherInfos.get(0);

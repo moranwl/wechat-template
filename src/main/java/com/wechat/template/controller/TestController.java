@@ -53,7 +53,7 @@ public class TestController {
         //获取关注用户
         List<String> userList = weiXinService.getUserList(token);
         for (String openId : userList) {
-            if (openId.equals("o1SlF6I5r8FCr_d8EbPP2dweREro") ) {
+            if (openId.equals("o1SlF6I5r8FCr_d8EbPP2dweREro")) {
                 //发送消息实体
                 WechatSendMsgVo sendMsgVo = new WechatSendMsgVo();
                 //设置模板id
@@ -74,6 +74,7 @@ public class TestController {
         }
         return "index";
     }
+
     /**
      * 微信模板消息推送
      *
@@ -92,11 +93,11 @@ public class TestController {
         String appKey = tianApiConfig.getAppKey();
         String area = tianApiConfig.getArea();
         //获取微信token
-        String token = weiXinService.getAccessToken(appId,appSecret);
+        String token = weiXinService.getAccessToken(appId, appSecret);
         //获取关注用户
         List<String> userList = weiXinService.getUserList(token);
         for (String openId : userList) {
-            if (openId.equals("o1SlF6I5r8FCr_d8EbPP2dweREro")){
+            if (openId.equals("o1SlF6I5r8FCr_d8EbPP2dweREro")) {
                 //发送消息实体
                 WechatSendMsgVo sendMsgVo = new WechatSendMsgVo();
                 //设置模板id
@@ -106,40 +107,40 @@ public class TestController {
                 Map<String, WechatTemplateVo> map = new HashMap<>();
                 //获取早安语句
                 String zaoAnInfo = weiXinService.getZaoAnInfo(appKey);
-                map.put("morning", new WechatTemplateVo("Baby 早安！"+zaoAnInfo,"#ff6666"));
+                map.put("morning", new WechatTemplateVo("Baby 早安！" + zaoAnInfo, "#ff6666"));
                 //获取天气
                 WeatherInfo weatherInfo = weiXinService.getWeatherInfo(appKey, area);
                 //日期
-                map.put("date", new WechatTemplateVo(weatherInfo.getDate(),null));
+                map.put("date", new WechatTemplateVo(weatherInfo.getDate(), null));
                 //星期
-                map.put("week",new WechatTemplateVo(weatherInfo.getWeek(),null));
+                map.put("week", new WechatTemplateVo(weatherInfo.getWeek(), null));
                 //城市
-                map.put("city",new WechatTemplateVo(weatherInfo.getArea(),"#9900ff"));
+                map.put("city", new WechatTemplateVo(weatherInfo.getArea(), "#9900ff"));
                 //天气
-                map.put("weather",new WechatTemplateVo(weatherInfo.getWeather(),"#CD96CD"));
+                map.put("weather", new WechatTemplateVo(weatherInfo.getWeather(), "#CD96CD"));
                 //最低气温
-                map.put("lowest",new WechatTemplateVo(weatherInfo.getLowest(),"#A4D3EE"));
+                map.put("lowest", new WechatTemplateVo(weatherInfo.getLowest(), "#A4D3EE"));
                 //最高气温
-                map.put("highest",new WechatTemplateVo(weatherInfo.getHighest(),"#CD3333"));
+                map.put("highest", new WechatTemplateVo(weatherInfo.getHighest(), "#CD3333"));
                 //降水概率
-                map.put("pop",new WechatTemplateVo(weatherInfo.getPop()+"%","#A4D3EE"));
+                map.put("pop", new WechatTemplateVo(weatherInfo.getPop() + "%", "#A4D3EE"));
                 //今日建议
-                map.put("tips",new WechatTemplateVo(weatherInfo.getTips(),"#FF7F24"));
+                map.put("tips", new WechatTemplateVo(weatherInfo.getTips(), "#FF7F24"));
 //            //相爱天数
 //            int loveDays = fun(loveDay, date);
 //            map.put("loveDay",new WechatTemplateVo(loveDays+"","#EE6AA7"));
                 //我的生日
                 int myDay = fun2(myBirthday, date);
-                map.put("myBirthday",new WechatTemplateVo(myDay+"","#EE6AA7"));
+                map.put("myBirthday", new WechatTemplateVo(myDay + "", "#EE6AA7"));
 //            //宝贝生日
 //            int babyDay = fun2(babyBirthday, date);
 //            map.put("babyBirthday",new WechatTemplateVo(babyDay+"","#EE6AA7"));
                 //朋友圈
                 String pengYouQuanInfo = weiXinService.getPengYouQuanInfo(appKey);
-                map.put("pengYouQuanInfo",new WechatTemplateVo(pengYouQuanInfo,"#E066FF"));
+                map.put("pengYouQuanInfo", new WechatTemplateVo(pengYouQuanInfo, "#E066FF"));
 
                 sendMsgVo.setData(map);
-                JSONObject entries = weiXinService.sendMsg(sendMsgVo,token, openId);
+                JSONObject entries = weiXinService.sendMsg(sendMsgVo, token, openId);
             }
         }
         return "index";

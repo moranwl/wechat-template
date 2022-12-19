@@ -32,24 +32,7 @@ public class WechatConfig {
     @Value("${wechat.loveDay}")
     private String loveDay;
 
-    @Value("${wechat.lstempIdZ}")
-    private String lstempIdZ;
+    @Value("${wechat.tempIdHs}")
+    private String tempIdHs;
 
-    @Value("${wechat.lstempIdW}")
-    private String lstempIdW;
-
-    @Value("${wechat.lsmyBirthday}")
-    private String lsmyBirthday;
-
-    @Value("${wechat.lsbabyBirthday}")
-    private String lsbabyBirthday;
-
-    @Value("${wechat.lsloveDay}")
-    private String lsloveDay;
-
-    @Value("${wechat.sctempIdHs}")
-    private String sctempIdHs;
-
-    @Value("${wechat.scBirthday}")
-    private String scBirthday;
 }

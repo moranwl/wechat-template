@@ -5,22 +5,15 @@ server:
 wechat:
   appId: wxfb5df9c22d703391
   appSecret: d929c5b254e961b1d952499e5af3ff81
-  tempId: t9IB66v8R--cRPBxrRDjZDyEdcETOhyvwzR3gfe1sok
-  tempIdW: 7hbQrQPyxPx0a0pwl2Dak0Qkwu63e4LRy3Ts6DMQ-d4
+  tempId: jZdbxabaxDpKSkaODu-ksA1jT5Z2bChLgVmlUxpeJys
+  tempIdW: dBMhQOLZg6SpJhM5ko2wN4II5tI-W0K6QySeiaYkwlk
   myBirthday: 2023-04-17
   babyBirthday: 2000-04-17
   loveDay: 2000-04-17
-  lstempIdZ: CQYW3h6xiUVVLU2lXvXJ7AmDABZu8QbGPMCQryGEveU
-  lstempIdW: 7rU1L7UDe3anGNqoRq_cMYd5ukOQnw1EcQ_FqJc3UWw
-  lsmyBirthday: 2022-09-28
-  lsbabyBirthday: 2023-05-31
-  lsloveDay: 2018-11-11
-  sctempIdHs: JNAi0z0f9elu_2IgxmzU8IlnSAi0ZeO_c8LMDhxdmL4
-  scBirthday: 2022-10-18
+  tempIdHs: JNAi0z0f9elu_2IgxmzU8IlnSAi0ZeO_c8LMDhxdmL4
 
 #彩虹屁接口
 tianapi:
   appKey: 751a876c86952fde6d27e9d13c62da17
-  area: 河北
-  lsarea: 香河
-  scarea: 廊坊
+  area: 沧州
+  areaTwo: 丰台

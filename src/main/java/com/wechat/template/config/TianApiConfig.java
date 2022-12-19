@@ -17,9 +17,6 @@ public class TianApiConfig {
     @Value("${tianapi.area}")
     private String area;
 
-    @Value("${tianapi.lsarea}")
-    private String lsarea;
-
-    @Value("${tianapi.scarea}")
-    private String scarea;
+    @Value("${tianapi.areaTwo}")
+    private String areaTwo;
 }

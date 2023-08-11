@@ -37,8 +37,7 @@ public class WeiXinServiceImpl implements WeiXinService {
         JSONObject result = JSONUtil.parseObj(resp);
         logger.info("用户列表:" + resp);
         JSONArray openIdJsonArray = result.getJSONObject("data").getJSONArray("openid");
-        List<String> openIds = JSONUtil.toList(openIdJsonArray, String.class);
-        return openIds;
+        return JSONUtil.toList(openIdJsonArray, String.class);
     }
 
 
@@ -62,8 +61,7 @@ public class WeiXinServiceImpl implements WeiXinService {
         JSONObject obj = JSONUtil.parseObj(resp);
         logger.info("obj" + obj.toString());
         JSONArray newslist = obj.getJSONArray("newslist");
-        String content = ((JSONObject) newslist.get(0)).getStr("content");
-        return content;
+        return ((JSONObject) newslist.get(0)).getStr("content");
     }
 
     @Override
@@ -86,8 +84,7 @@ public class WeiXinServiceImpl implements WeiXinService {
         JSONObject obj = JSONUtil.parseObj(resp);
         logger.info("晚安obj" + obj.toString());
         JSONArray newslist = obj.getJSONArray("newslist");
-        String content = ((JSONObject) newslist.get(0)).getStr("content");
-        return content;
+        return ((JSONObject) newslist.get(0)).getStr("content");
     }
 
     @Override
@@ -98,8 +95,7 @@ public class WeiXinServiceImpl implements WeiXinService {
         JSONObject obj = JSONUtil.parseObj(resp);
         logger.info("obj" + obj.toString());
         JSONArray newslist = obj.getJSONArray("newslist");
-        String content = ((JSONObject) newslist.get(0)).getStr("content");
-        return content;
+        return ((JSONObject) newslist.get(0)).getStr("content");
     }
 
     @Override
@@ -110,8 +106,7 @@ public class WeiXinServiceImpl implements WeiXinService {
         JSONObject obj = JSONUtil.parseObj(resp);
         logger.info("obj" + obj.toString());
         JSONArray newslist = obj.getJSONArray("newslist");
-        String content = ((JSONObject) newslist.get(0)).getStr("content");
-        return content;
+        return ((JSONObject) newslist.get(0)).getStr("content");
     }
 
     @Override
@@ -122,8 +117,7 @@ public class WeiXinServiceImpl implements WeiXinService {
         JSONObject obj = JSONUtil.parseObj(resp);
         logger.info("obj" + obj.toString());
         JSONArray newslist = obj.getJSONArray("newslist");
-        String content = ((JSONObject) newslist.get(0)).getStr("content");
-        return content;
+        return ((JSONObject) newslist.get(0)).getStr("content");
     }
 
     @Override

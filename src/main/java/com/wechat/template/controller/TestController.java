@@ -47,7 +47,6 @@ public class TestController {
         String loveDay = wechatConfig.getLoveDay();
         String appKey = tianApiConfig.getAppKey();
         String area = tianApiConfig.getArea();
-        String areaTwo = tianApiConfig.getAreaTwo();
         //获取微信token
         String token = weiXinService.getAccessToken(appId, appSecret);
         //获取关注用户
@@ -65,7 +64,7 @@ public class TestController {
                 String zaoAnInfo = weiXinService.getZaoAnInfo(appKey);
                 map.put("morning", new WechatTemplateVo("Baby 早安！" + zaoAnInfo, "#ff6666"));
                 //获取天气
-                WeatherInfo weatherInfo = weiXinService.getWeatherInfo(appKey, areaTwo);
+                WeatherInfo weatherInfo = weiXinService.getWeatherInfo(appKey, area);
                 //日期
                 map.put("date", new WechatTemplateVo(weatherInfo.getDate(), null));
                 //星期

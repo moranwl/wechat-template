@@ -1,5 +1,19 @@
 server:
   port: 8088
+spring:
+  datasource:
+    url: jdbc:mysql://bj-cynosdbmysql-grp-jjeu6agm.sql.tencentcdb.com:26555/jp
+    username: root
+    password: Qq1574581952
+    driver-class-name: com.mysql.cj.jdbc.Driver
+# MyBatis Plus配置
+mybatis-plus:
+  #配置日志  打印sql语句
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath*:mappers/*.xml
+
+
 
 #公众号配置
 wechat:
@@ -15,5 +29,4 @@ wechat:
 #彩虹屁接口
 tianapi:
   appKey: 751a876c86952fde6d27e9d13c62da17
-  area: 沧州
-  areaTwo: 丰台
+  area: 昌平

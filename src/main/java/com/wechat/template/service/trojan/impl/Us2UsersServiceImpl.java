@@ -1,22 +1,21 @@
 package com.wechat.template.service.trojan.impl;
 
-import com.alibaba.excel.util.CollectionUtils;
 import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.wechat.template.domain.trojan.Users;
+import com.wechat.template.mapper.trojan.UsersTrojan;
+import com.wechat.template.service.trojan.Us2UsersService;
 import com.wechat.template.service.trojan.UsersService;
 import com.wechat.template.tool.PasswordHashingExample;
 import org.apache.commons.lang3.ObjectUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.wechat.template.mapper.trojan.UsersTrojan;
-import com.wechat.template.domain.trojan.Users;
 
-@DS("master")
+@DS("slave_2")
 @Service
-public class UsersServiceImpl extends ServiceImpl<UsersTrojan, Users> implements UsersService {
+public class Us2UsersServiceImpl extends ServiceImpl<UsersTrojan, Users> implements Us2UsersService {
 
 
     @Override

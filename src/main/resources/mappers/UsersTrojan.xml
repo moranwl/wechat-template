@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wechat.template.mapper.trojan.UsersTrojan">
+  <resultMap id="BaseResultMap" type="com.wechat.template.domain.trojan.Users">
+    <!--@mbg.generated-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="CHAR" property="password" />
+    <result column="passwordShow" jdbcType="VARCHAR" property="passwordshow" />
+    <result column="quota" jdbcType="BIGINT" property="quota" />
+    <result column="download" jdbcType="BIGINT" property="download" />
+    <result column="upload" jdbcType="BIGINT" property="upload" />
+    <result column="useDays" jdbcType="INTEGER" property="usedays" />
+    <result column="expiryDate" jdbcType="CHAR" property="expirydate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, username, `password`, passwordShow, quota, download, upload, useDays, expiryDate
+  </sql>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update users
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="username = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.username,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="`password` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.password,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="passwordShow = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.passwordshow,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="quota = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.quota,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="download = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.download,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="upload = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.upload,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="useDays = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.usedays,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="expiryDate = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.expirydate,jdbcType=CHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update users
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="username = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.username != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.username,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="`password` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.password != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.password,jdbcType=CHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="passwordShow = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.passwordshow != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.passwordshow,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="quota = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.quota != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.quota,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="download = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.download != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.download,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="upload = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.upload != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.upload,jdbcType=BIGINT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="useDays = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.usedays != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.usedays,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="expiryDate = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.expirydate != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.expirydate,jdbcType=CHAR}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into users
+    (username, `password`, passwordShow, quota, download, upload, useDays, expiryDate
+      )
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.username,jdbcType=VARCHAR}, #{item.password,jdbcType=CHAR}, #{item.passwordshow,jdbcType=VARCHAR},
+        #{item.quota,jdbcType=BIGINT}, #{item.download,jdbcType=BIGINT}, #{item.upload,jdbcType=BIGINT},
+        #{item.usedays,jdbcType=INTEGER}, #{item.expirydate,jdbcType=CHAR})
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="com.wechat.template.domain.trojan.Users" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into users
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      username,
+      `password`,
+      passwordShow,
+      quota,
+      download,
+      upload,
+      useDays,
+      expiryDate,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      #{username,jdbcType=VARCHAR},
+      #{password,jdbcType=CHAR},
+      #{passwordshow,jdbcType=VARCHAR},
+      #{quota,jdbcType=BIGINT},
+      #{download,jdbcType=BIGINT},
+      #{upload,jdbcType=BIGINT},
+      #{usedays,jdbcType=INTEGER},
+      #{expirydate,jdbcType=CHAR},
+    </trim>
+    on duplicate key update
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=INTEGER},
+      </if>
+      username = #{username,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=CHAR},
+      passwordShow = #{passwordshow,jdbcType=VARCHAR},
+      quota = #{quota,jdbcType=BIGINT},
+      download = #{download,jdbcType=BIGINT},
+      upload = #{upload,jdbcType=BIGINT},
+      useDays = #{usedays,jdbcType=INTEGER},
+      expiryDate = #{expirydate,jdbcType=CHAR},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="com.wechat.template.domain.trojan.Users" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into users
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="passwordshow != null">
+        passwordShow,
+      </if>
+      <if test="quota != null">
+        quota,
+      </if>
+      <if test="download != null">
+        download,
+      </if>
+      <if test="upload != null">
+        upload,
+      </if>
+      <if test="usedays != null">
+        useDays,
+      </if>
+      <if test="expirydate != null">
+        expiryDate,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=CHAR},
+      </if>
+      <if test="passwordshow != null">
+        #{passwordshow,jdbcType=VARCHAR},
+      </if>
+      <if test="quota != null">
+        #{quota,jdbcType=BIGINT},
+      </if>
+      <if test="download != null">
+        #{download,jdbcType=BIGINT},
+      </if>
+      <if test="upload != null">
+        #{upload,jdbcType=BIGINT},
+      </if>
+      <if test="usedays != null">
+        #{usedays,jdbcType=INTEGER},
+      </if>
+      <if test="expirydate != null">
+        #{expirydate,jdbcType=CHAR},
+      </if>
+    </trim>
+    on duplicate key update
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=CHAR},
+      </if>
+      <if test="passwordshow != null">
+        passwordShow = #{passwordshow,jdbcType=VARCHAR},
+      </if>
+      <if test="quota != null">
+        quota = #{quota,jdbcType=BIGINT},
+      </if>
+      <if test="download != null">
+        download = #{download,jdbcType=BIGINT},
+      </if>
+      <if test="upload != null">
+        upload = #{upload,jdbcType=BIGINT},
+      </if>
+      <if test="usedays != null">
+        useDays = #{usedays,jdbcType=INTEGER},
+      </if>
+      <if test="expirydate != null">
+        expiryDate = #{expirydate,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="findById" resultMap="BaseResultMap">
+    select * from users where  id = #{id}
+  </select>
+</mapper>

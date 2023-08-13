@@ -2,10 +2,38 @@ server:
   port: 8088
 spring:
   datasource:
-    url: jdbc:mysql://bj-cynosdbmysql-grp-jjeu6agm.sql.tencentcdb.com:26555/jp
-    username: root
-    password: Qq1574581952
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    dynamic:
+      # 设置默认的数据源或者数据源组,默认值即为master
+      primary: master
+      # 严格匹配数据源,默认false.true未匹配到指定数据源时抛异常,false使用默认数据源
+      strict: false
+      datasource:
+        # primary: master 指定的master 就是下面的这个 也就是他就是默认的数据源
+        master:
+          url: jdbc:mysql://bj-cynosdbmysql-grp-jjeu6agm.sql.tencentcdb.com:26555/us
+          username: root
+          password: Qq1574581952
+          driver-class-name: com.mysql.cj.jdbc.Driver
+        slave_1:
+          url: jdbc:mysql://bj-cynosdbmysql-grp-jjeu6agm.sql.tencentcdb.com:26555/us1
+          username: root
+          password: Qq1574581952
+          driver-class-name: com.mysql.cj.jdbc.Driver
+        slave_2:
+          url: jdbc:mysql://bj-cynosdbmysql-grp-jjeu6agm.sql.tencentcdb.com:26555/us2
+          username: root
+          password: Qq1574581952
+          driver-class-name: com.mysql.cj.jdbc.Driver
+        slave_uk:
+          url: jdbc:mysql://bj-cynosdbmysql-grp-jjeu6agm.sql.tencentcdb.com:26555/uk
+          username: root
+          password: Qq1574581952
+          driver-class-name: com.mysql.cj.jdbc.Driver
+        slave_jp:
+          url: jdbc:mysql://bj-cynosdbmysql-grp-jjeu6agm.sql.tencentcdb.com:26555/jp
+          username: root
+          password: Qq1574581952
+          driver-class-name: com.mysql.cj.jdbc.Driver
 # MyBatis Plus配置
 mybatis-plus:
   #配置日志  打印sql语句
